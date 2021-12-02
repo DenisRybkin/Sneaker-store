@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./Card.module.scss"
 import ContentLoader from "react-content-loader"
 import {AppContext} from "../../App";
+import {Link} from "react-router-dom";
 
 export default function Index({ title, imageUrl, price, id, index, onPlus , onFavorite, favorited, loading }) {
     const {itemsIsAdded, itemsIsFavorited} = React.useContext(AppContext);
@@ -35,7 +36,7 @@ export default function Index({ title, imageUrl, price, id, index, onPlus , onFa
                     </div>    : (<>
                     <div className={styles.card}>
                         {onFavorite && <div className={styles.favorite}>
-                            <img src={itemsIsFavorited(id) ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"}
+                            <img style={{objectFit : "cover"}} src={itemsIsFavorited(id) ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"}
                                  onClick={chooseFavorite} alt="Unliked"/>
                         </div>}
                         <img width={133} height={112} src={imageUrl} alt="Sneaker"/>
@@ -49,6 +50,11 @@ export default function Index({ title, imageUrl, price, id, index, onPlus , onFa
                                   src={itemsIsAdded(id) ? "/img/btn-checked.svg" : "/img/btn-plus.svg"}
                                   alt="Plus add" onClick={addingToCart}
                             />}
+                            <Link to={`/product/${id}`}>
+                                <img className={styles.redirect}
+                                     src={"/img/redirect-to-product.svg"}
+                                     alt="Plus add" />
+                            </Link>
                         </div>
                     </div>
                 </>) }

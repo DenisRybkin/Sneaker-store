@@ -76,7 +76,7 @@ export default function Drawer({onClick, items , onRemove, opened}) {
                             </li>
                         </ul>
                         <button disabled={isLoading} className="greenButton" onClick={onClickOrder}>Оформить заказ
-                            <img src="/img/arrow.svg" alt="Arrow"/></button>
+                            <img  src="/img/arrow.svg" alt="Arrow"/></button>
                     </div>
                 }
 

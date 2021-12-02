@@ -146,6 +146,7 @@ header{
   }
 }
 .greenButton{
+    position: relative;
     width: 100%;
     background-color: #9DD558;
     color: #FFFFFF;
@@ -161,10 +162,24 @@ header{
     &:hover{
       background: lighten(#9DD558, 5%);
     }
-  &:disabled {
-    background-color: #bebebe !important;
-    cursor: default;
-  }
+    &:disabled {
+      background-color: #bebebe !important;
+      cursor: default;
+    }
+    &:hover{
+      img{
+        transform: translateX(5px);
+      }
+    }
+
+    &:disabled {
+      animation: button-loading 0.6s ease-in-out infinite;
+    }
+
+    .lol{
+      margin-left: 10px;
+      transition: transform .2s ease-in-out;
+    }
 }
 .greenButtonEmptyBlock{
   max-width: 245px;
@@ -220,4 +235,8 @@ header{
 }
 .emptyBlock{
   margin: 70px auto;
+}
+.product-image{
+  max-width: 266px;
+  max-height: 224px;
 }

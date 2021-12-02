@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import Orders from "./pages/Orders";
 import SimpleSlider from "./components/PreviewSlick";
+import {Product} from "./pages/Product";
 
 export const AppContext = React.createContext({});
 
@@ -125,6 +126,12 @@ function App() {
               <Route path="/" exact>
                   <SimpleSlider/>
               </Route>
+              <Route path="/product">
+                  <Product
+                      onAddToCart={onAddToCart}
+                      onChooseFavorite={onChooseFavorite}
+                  />
+              </Route>
               <Route path="/" exact>
                   <Home
                         items={items}
@@ -137,7 +144,8 @@ function App() {
                         isLoading={isLoading} exact />
               </Route>
               <Route path="/favorites" exact>
-                  <Favorites onChooseFavorite={onChooseFavorite}/>
+                  <Favorites
+                      onChooseFavorite={onChooseFavorite}/>
               </Route>
               <Route path="/orders" exact>
                   <Orders />

@@ -12,7 +12,7 @@ export default function Home ({items,
     const renderItems = () => {
         const filtered = items.filter((item) => item.title.toLowerCase().includes(`${searchValue.toLowerCase()}`))
          return (
-             isLoading ? [...Array(10)]
+             isLoading ? [...Array(18)]
                  : filtered).map((item, index) => (
                     <Card {...item}
                       onPlus={(product) => onAddToCart(product)}
